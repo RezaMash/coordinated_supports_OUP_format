@@ -1,0 +1,79 @@
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+%default radius will be 1pt. 
+cross/.default={1pt}}
+\definecolor{light_gray}{RGB}{219,219,219}
+\begin{figure}
+\vspace{-0.5cm}
+    \centering
+        \begin{tikzpicture}[x=0.5cm,y=0.5cm,z=0.3cm,>=stealth]
+        % The axes
+        \draw[->] (xyz cs:x=0) -- (xyz cs:x=3.5) node[above] {$d_1$};
+        \draw[->] (xyz cs:y=0) -- (xyz cs:y=3.5) node[right] {$d_2$};
+        \draw[->] (xyz cs:z=0) -- (xyz cs:z=-3.5) node[left] {$d_3$};
+        
+        \coordinate (O) at (0,0,0);
+        \coordinate (P1) at (5,6,-1);
+        \coordinate (P2) at (5,4,-2);
+        \coordinate (P3) at (5,4,-4);
+        \coordinate (P4) at (5,6,-5);
+        \coordinate (P5) at (5,8,-3);
+        
+        \draw[fill=light_gray,opacity=0.3] (O) -- (P1) -- (P2);
+        \draw (O) -- (P1);
+        \draw[fill=light_gray,opacity=0.3] (O) -- (P2) -- (P3);
+        \draw (O) -- (P2);
+        \draw[fill=light_gray,opacity=0.3] (O) -- (P3) -- (P4);
+        \draw (O) -- (P3);
+        \draw[fill=light_gray,opacity=0.3] (O) -- (P4) -- (P5);
+        \draw (O) -- (P4);
+        \draw[fill=light_gray,opacity=0.2] (O) -- (P5) -- (P1);
+        \draw (O) -- (P5);
+        \draw[pattern=north west lines, pattern color=purple] (P1) -- (P2) -- (P3) -- (P4) -- (P5) -- (P1);
+        
+        
+        
+        
+        
+        \draw (0,0,0) -- (5,0,-1);
+        \draw [dashed] (0,0,0) -- (5,0,-2);
+        \draw [dashed] (0,0,0) -- (5,0,-3);
+        \draw [dashed] (0,0,0) -- (5,0,-4);
+        \draw (0,0,0) -- (5,0,-5);
+        \draw [dashed, purple, line width = 0.25mm] (5,0,1) -- (5,0,-7);
+        
+        \draw[fill=light_gray,opacity=0.6] (O) -- (5,0,-1) -- (5, 0, -5);
+        
+           \node[align=center] at (-2,0) (ori) {\footnotesize{Imaged cone}};
+        \draw[->,help lines,shorten >=3pt] (ori) .. controls (-3,-1) and (-1,-1.5) .. (1.5,-2);
+        
+        \node[align=center] at (-1,2) (cone) {\footnotesize{Cone}};
+        \draw[->,help lines,shorten >=3pt] (cone) .. controls (-1,2.5) and (-0.5,3) .. (1.5,2.5);
+        
+        \node[align=center] at (7.5,2) (cone) {\footnotesize{The intersection with plane $d_1 = 1$}};
+        \draw[->,help lines,shorten >=3pt] (cone) .. controls (6.5,2.5) and (6,4) .. (4,4);
+        \draw[->,help lines,shorten >=3pt] (cone) .. controls (6.5,1.5) and (6,1) .. (5.5,0.5);
+        
+        \node[align=center] at (9,0) (cone) {\footnotesize{The desired results}};
+        \draw[->,help lines,shorten >=3pt] (cone) .. controls (8,-0.5) and (7,-1) .. (5,0,-1);
+        \draw[->,help lines,shorten >=3pt] (cone) .. controls (9,-0.5) and (17,-3) .. (5,0,-5);
+        
+        
+        \draw [line width=0.35mm](5,0,-1) circle [radius=0.15];
+        \draw (5,0,-2) node[cross=2pt, rotate=45]{};
+        \draw (5,0,-3) node[cross=2pt, rotate=45]{};
+        \draw (5,0,-4) node[cross=2pt, rotate=45]{};
+        \draw [line width=0.35mm](5,0,-5) circle [radius=0.15];
+        
+        \draw[decoration={brace,raise=2pt},decorate]
+          (5,0,-1.5) -- node[right=3pt] {\footnotesize{The outdated results}} (5,0,-4.5);
+        
+        \end{tikzpicture}
+
+        \caption{Each extreme ray of the projected cone is an image of an extreme ray in the original cone, while some extreme rays of the original cone do not project to extreme rays. It is also possible that two or more extreme rays in the original cone project onto the same one. Our desired projections lie in the plane where the value in the target position is $1$.}
+        \label{fig:imaged_cone}
+
+    % \label{fig:my_cone}
+    % \caption{Minimal supports correspond to extreme rays of the cone while minimal coordinated supports are extreme rays of the projected cone in a lower dimension space. Our desired results are the intersection of plane $t = 1$ with the projected cone's extreme rays, where $t$ is the position of our target reaction in the nullspace matrix of the reconfigured nullspace matrix (Figure \ref{fig:processing_space}).}
+    \vspace{-0.5cm}
+\end{figure}
+% \vspace{-1cm}

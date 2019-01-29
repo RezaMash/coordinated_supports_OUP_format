@@ -1,0 +1,33 @@
+\makeatletter
+
+\tikzset{
+    @pos/.style={@pos1={#1},@pos2={#1}},
+    @ratio/.style={@ratio1={#1},@ratio2={#1}},
+    @delta/.style={@delta1={#1},@delta2={#1}},
+    @edge/.style={@@edge/.append style={#1}},
+    @edge 0/.style={@@edge 0/.append style={#1}},
+    @edge 1/.style={@@edge 1/.append style={#1}},
+    @edge 2/.style={@@edge 2/.append style={#1}},
+    @edge 3/.style={@@edge 3/.append style={#1}},
+    @edge 4/.style={@@edge 4/.append style={#1}},
+    % and for four:
+    @pos1/.store in=\qrr@posA,
+    @pos2/.store in=\qrr@posB,
+    @ratio1/.store in=\qrr@ratioA,
+    @ratio2/.store in=\qrr@ratioB,
+    @delta1/.store in=\qrr@deltaA,
+    @delta2/.store in=\qrr@deltaB,
+    @pos=.5,
+    @ratio=.5,
+    @delta=.1,
+}
+\newcommand*{\connectThree}[4][]{
+    \begingroup
+    \tikzset{#1}
+    \coordinate (@aux1) at ($(#2)!\qrr@ratioA!(#3)$);
+    \coordinate (@aux2) at ($(#4)!\qrr@posA!(@aux1)$);
+    \path (@aux2) edge[@@edge/.try, @@edge 0/.try, @@edge 3/.try] (#4);
+    \draw[@@edge/.try, @@edge 1/.try] (@aux2) .. controls ($(#4)!\qrr@posA+\qrr@deltaA!(@aux1)$) .. (#2);
+    \draw[@@edge/.try, @@edge 2/.try] (@aux2) .. controls ($(#4)!\qrr@posA+\qrr@deltaA!(@aux1)$) .. (#3);
+    \endgroup
+}

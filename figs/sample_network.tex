@@ -1,0 +1,113 @@
+\begin{figure}[t!]
+% \begin{minipage}[b]{0.49\linewidth}
+\vspace{-0.5cm}
+\begin{tikzpicture}[scale=0.9, >= stealth, shorten > = 1pt, auto, semithick]
+        \tikzstyle{every state}=[draw = black, thick, fill = white, minimum size = 4mm]
+        \def\C{0.7}
+        \node[state] (A) at (0,0) {$A$};
+        \node[state] (C) at (\C*2, -1*\C) {$C$};
+        \node[state] (B) at (2*\C, 1*\C) {$B$};
+        \node[state] (D) at (4*\C, 1*\C) {$D$};
+        \node[state, draw = none] (X) at (0*\C, 2*\C) {};
+        \node[state, draw = none] (Y) at (4*\C,-1*\C) {};
+        \node[state, draw = none] (Z) at (0*\C,-1*\C) {};
+
+        \path[-{Latex[width=3mm]}] (X) edge node {1} (A);
+        \node (t) at ($(A)!0.5!(B)$) {2};
+        \path[-{Latex[width=3mm]}] (B) edge node {3} (D);
+        \path[-{Latex[width=3mm]}] (D) edge node {4} (Y);
+        \path[Latex-{Latex[width=3mm]}] (D) edge node [above]{5} (C);
+        \path[-{Latex[width=3mm]}] (C) edge node[above] {6} (Z); 
+                
+        \connectThree[@edge 1=-{Latex[width=3mm]}, @edge 2=-{Latex[width=3mm]}]{C}{B}{A}
+        
+        \def\S{6}
+        \def\W{-0.7}
+        
+        \node[state] (BB) at (0*\C+\S, 0*\C+\W) {$B'$};
+        \node[state] (AA) at (0*\C+\S, 2*\C+\W) {$A'$};
+        \node[state, draw = none] (UU) at (-2*\C+\S, 0*\C+\W) {};
+        \node[state, draw = none] (VV) at (2*\C+\S, 1*\C+\W) {};
+        \node[state, draw = none] (WW) at (2*\C+\S, 1*\C+\W) {};
+        \node[state, draw = none] (XX) at (-2*\C+\S, 1*\C+\W) {};
+        \node[state, draw = none] (YY) at (-2*\C+\S,2*\C+\W) {};
+        \node[state, draw = none] (ZZ) at (2*\C+\S,2*\C+\W) {};
+
+        \path[Latex-{Latex[width=3mm]}] (YY) edge node {1} (AA);
+        \path[Latex-{Latex[width=3mm]}] (XX) edge node {2} (AA);
+        \path[Latex-{Latex[width=3mm]}] (ZZ) edge node[above] {3} (AA);
+        \path[{Latex[width=3mm]}-Latex] (AA) edge node[left] {4} (BB);
+        \path[Latex-{Latex[width=3mm]}] (UU) edge node {5} (BB); 
+        \node (t) at ($(BB)!0.5!(VV)$) {6};
+                
+        \connectThree[@edge 1=-{Latex[width=3mm]}, @edge 2=-{Latex[width=3mm]}, @edge 3=-Latex]{AA}{BB}{VV}
+        
+        
+    \end{tikzpicture}
+\footnotesize{  
+\begin{minipage}[b]{0.49\linewidth}
+\vspace{-0.3cm}
+\[
+  \begin{bmatrix}
+    1 & -1 & 0 & 0 & 0 & 0 \\
+    0 & 1 & -1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 & 1 & -1 \\
+    0 & 0 & 1 & -1 & -1 & 0\\
+  \end{bmatrix}
+\]
+
+\centering
+Stoichiometry matrix\\
+\vspace{0.3cm}
+{[}No  No  No  No  Yes  No{]} \\
+Reversibility vector 
+\end{minipage}
+\begin{minipage}[b]{0.49\linewidth} 
+    \[
+  \begin{bmatrix}
+    1 & 1 & 1 & 1 & 0 & 1 \\
+    0 & 0 & 0 & -1 & 1 & 1 
+  \end{bmatrix}
+\]
+\centering
+Nullspace matrix\\
+\vspace{0.3cm}
+{[}Yes  Yes Yes  Yes Yes  Yes{]} \\
+Reversibility vector
+\end{minipage}
+}
+
+\centering    
+\begin{tikzpicture}
+    \node at (-1.1, 0.75) {Some cut };
+    \node at (-1.1, 0.5) {sets for };
+    \node at (-1.1, 0.25) {reaction $1$};
+    \node at (4.0, 0.75) {Some FMs};
+    \node at (4.0, 0.5) {in the dual};
+    \node at (4.0, 0.25) {network};
+    \node at (2.0, 0)   {$[1,0,0,0,1,-1]$};    
+    \node at (2.0, 0.5) {$[1,1,-2,0,0,0]$};
+    \node at (2.0, 1)   {$[1,0,0,\frac{-1}{2},0,\frac{-1}{2}]$};    
+    \node at (0, 0) {$\{5,6\}$};
+    \node at (0, 0.5) {$\{3\}$};    
+    \node at (0, 1) {$\{4,6\}$};
+    \draw[Stealth-] (0.4,0) -- (1,0);
+    \draw[Stealth-] (0.4,.5) -- (1,.5);
+    \draw[Stealth-] (0.4,1) -- (0.8,1);
+    % \node at (2.4, 0.2) {\footnotesize{$\mathcal{I}$-Coordinated support}};
+    % \node at (2.4, 0.7) {\footnotesize{$\mathcal{I}$-Coordinated support}};
+    % \node at (2.4, 1.2) {\footnotesize{$\mathcal{I}$-Coordinated support}};
+    \draw[decoration={brace,raise=2pt},decorate]
+        (-0.3,0) -- node[left=3pt] {} (-0.3,1);
+    \draw[decoration={brace,raise=2pt},decorate]
+        (3.1,1) -- node[right=3pt] {} (3.1,0);
+\end{tikzpicture}
+    % \caption{Reaction 6, 7, and 8 are a (minimal) cut-set for reaction 3. But the splitting claim won't hold here.}
+    % \label{fig:counter_example}
+    % \tamon{Old caption moved to text, "row-space network": suitable term?}
+    \caption{Example of a metabolic network with its associated dual network. Some of its FMs involving target reaction $1$ are shown; their $\mathcal{I}-$coordinated supports result in cut sets for it in the original network.}
+    
+    \label{fig:example}
+    % \tamon{Old caption moved to text, "row-space network": suitable term?}
+    \vspace{-0.5cm}
+\end{figure}

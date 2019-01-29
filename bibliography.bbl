@@ -1,0 +1,74 @@
+\begin{thebibliography}{99}
+
+\bibitem{candes2008enhancing}
+Emmanuel~J Candes, Michael~B Wakin, and Stephen~P Boyd.
+\newblock Enhancing sparsity by reweighted {$\ell_1$} minimization.
+\newblock {\em Journal of Fourier analysis and applications}, 14(5-6):877--905,
+  2008.
+
+% \bibitem{Thesis}
+% L.~Chindelevitch.
+% \newblock {\em Extracting Information from Biological Networks}.
+% \newblock MIT, 2010.
+
+% \bibitem{MONGOOSE}
+% Leonid Chindelevitch, Jason Trigg, Aviv Regev, and Bonnie Berger.
+% \newblock An exact arithmetic toolbox for a consistent and reproducible
+%   structural analysis of metabolic network models.
+% \newblock {\em Nature Communications}, 5, 2014.
+
+\bibitem{BiGG}
+Zachary~A. King, Justin Lu, Andreas Dr\"{a}ger, Philip Miller, Stephen
+  Federowicz, Joshua~A. Lerman, Ali Ebrahim, Bernhard~O. Palsson, and Nathan~E.
+  Lewis.
+\newblock Bigg models: A platform for integrating, standardizing and sharing
+  genome-scale models.
+\newblock {\em Nucleic Acids Research}, 44:D515–D522, 2015.
+
+\bibitem{FBA3}
+S.~Klamt and E.~Gilles.
+\newblock Minimal cut sets in biochemical reaction networks.
+\newblock {\em Bioinformatics}, 20:226--234, 2004.
+
+\bibitem{lee2004first}
+Jon Lee.
+\newblock {\em A first course in combinatorial optimization}, volume~36.
+\newblock Cambridge University Press, 2004.
+
+\bibitem{Review}
+Nogales~J. Monk, J. and B.~Palsson.
+\newblock Optimizing genome-scale network reconstructions.
+\newblock {\em Nature Biotechnology}, 32:447--452, 2014.
+
+\bibitem{FBA2}
+Acu\ {n}a V, Chierichetti F, Lacroix V, Marchetti-Spaccamela A, Sagot MF, and
+  Stougie L.
+\newblock Modes and cuts in metabolic networks: complexity and algorithms.
+\newblock {\em BioSystems}, 95:51--60, 2009.
+
+\bibitem{schrijver2003combinatorial}
+Alexander Schrijver.
+\newblock {\em Combinatorial optimization: polyhedra and efficiency},
+  volume~24.
+\newblock Springer Science \& Business Media, 2003.
+
+\bibitem{CBS}
+S.~Schuster and T~H\"{o}fer.
+\newblock Determining all extreme semi-positive conservation relations in
+  chemical reaction systems: A test criterion for conservativity.
+\newblock {\em Journal of the Chemical Society, Faraday Transactions},
+  87:2561--2566, 1991.
+
+\bibitem{COBRA}
+I.~Thiele and B.~Palsson.
+\newblock A protocol for generating a high-quality genome-scale metabolic
+  reconstruction.
+\newblock {\em Nature Protocols}, 5:93--121, 2010.
+
+\bibitem{FBA1}
+A.~Varma and B.~Palsson.
+\newblock Stoichiometric flux balance models quantitatively predict growth and
+  metabolic by-product secretion in wild-type \textit{Escherichia coli} w3110.
+\newblock {\em Appl. Environ. Microbiol.}, 60:3724–3731, 1994.
+
+\end{thebibliography}
